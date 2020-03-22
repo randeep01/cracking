@@ -37,7 +37,7 @@ int main()
 	list.insertAtEnd(3334);
 
 	list.print();
-	list.removeDups();
+	list.removeDups_space();
 	list.print();
 	return 0;
 }
@@ -67,6 +67,21 @@ void LinkedList::removeDups()
 }
 void LinkedList::removeDups_space()
 {
+	Node* curr = head;
+	while (curr != nullptr) {
+		Node* runner = curr;
+		while (runner->next != nullptr) {
+
+			if (curr->data == runner->next->data) {
+				runner->next = runner->next->next;
+			}
+			else {
+				runner = runner->next;
+			}
+
+		}
+		curr = curr->next;
+	}
 }
 void LinkedList::add(int data)
 {
